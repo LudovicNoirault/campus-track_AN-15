@@ -11,8 +11,25 @@ async defer></script>
 </head>
   <body>
       <div id="app">
-          <div id="map"></div>
-          <div id="menu"></div>
+        <div id="menu">
+            <div class="containerLogo">
+              <img src="assets/image/logo-4.png" alt="logo">
+              <h1>Cité de l’environement</h1>
+            </div>
+            <div class="menuContenu">
+              <div class="titlesMenu">
+                <h2>Projection du <br/>niveau de la mer <br/>à l’année 2100 </h2>
+                <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
+              </div>
+              <div class="menuSettings">
+                <p class="year">Année</p>
+                <p class="valueSlider">2060</p>
+                <input type="range" class="range" name="a" min="2020" max="2120" step="1" value="2020"/>
+
+              </div>
+            </div>
+        </div>
+        <div id="map"></div>
       </div>
   </body>
 </html>

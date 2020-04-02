@@ -5,6 +5,25 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: Montserrat;
+}
+
+h1{
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+h2{
+    color: #eb48c9;
+    font-size: 30px;
+    margin: 20px 0px 20px 20px;
+}
+
+p{
+    padding-left: 20px;
+    padding-right: 60px;
+    color: #4B4A48;
+    margin: 0;
 }
 
 #app{
@@ -19,6 +38,63 @@ html, body {
 #menu{
     height: 100%;
     width: 30%;
-    background-color: #232323;
+    background-color: #ffffff;
     color:#ededed;
+}
+
+.containerLogo{
+    height: 100px;
+    width: 100%;
+    background: #4B4A48;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.containerLogo img{
+    margin-left: 10px;
+    height: 70px;
+    width: 70px;
+
+}
+
+.menuContenu{
+    background-color: #f5f5f5;
+}
+
+.titlesMenu{
+    background-color: #ffffff;
+}
+
+.titlesMenu p{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.year{
+    color: #eb48c9;
+    font-size: 13px;
+}
+
+.valueSlider{
+    font-size: 20px;
+    color: #eb48c9;
+}
+
+.menuSettings input{
+    margin-left: 20px;
+}
+
+.menuSettings{
+    margin-top: 5px;
+    padding-top: 10px;
+    background-color: #ffffff;
+}
+
+.menuSettings > p{
+    padding-top: 10px;
+}
+
+.menuSettings input{
+    margin-top: 20px;
 }
