@@ -1,0 +1,23 @@
+{
+  "name": "interactive-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start":"electron .", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Horyon/campus-track-interactive-map.git"
+  },
+  "author": "Horyon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Horyon/campus-track-interactive-map/issues"
+  },
+  "homepage": "https://gitlab.com/Horyon/campus-track-interactive-map#readme",
+  "dependencies": {
+    "electron": "^8.2.0"
+  }
+}
