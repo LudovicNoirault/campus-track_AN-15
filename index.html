@@ -5,7 +5,6 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="system.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"
 async defer></script>
 </head>
@@ -23,13 +22,13 @@ async defer></script>
               </div>
               <div class="menuSettings">
                 <p class="year">Année</p>
-                <p class="valueSlider">2060</p>
-                <input type="range" class="range" name="a" min="2020" max="2120" step="1" value="2020"/>
-
+                <p class="valueSlider"><span id="sliderValue"></span></p>
+                <input id="slider" type="range" min="2020" max="2100" step="10" value="2020"/>
               </div>
             </div>
         </div>
         <div id="map"></div>
       </div>
+      <script src="system.js"></script>
   </body>
 </html>
