@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"
 async defer></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 </head>
   <body>
       <div id="app">
@@ -22,8 +26,10 @@ async defer></script>
               </div>
               <div class="menuSettings">
                 <p class="year">Année</p>
-                <p class="valueSlider"><span id="sliderValue"></span></p>
-                <input id="slider" type="range" min="2020" max="2100" step="10" value="2020"/>
+                <form class="containerSlider">
+                      <output class="valueSlider" name="result4">2020</output>
+                      <input class="slider" type="range" name="d" min="2020" max="2120" step="1" value="2020" oninput="result4.value=parseInt(d.value)"/>
+              </form>
               </div>
             </div>
         </div>

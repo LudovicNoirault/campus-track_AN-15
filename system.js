@@ -17,12 +17,10 @@ function initMap() {
 }
 
 
-const slider = document.getElementById('slider')
-const sliderValue = document.getElementById('sliderValue')
-// init value to display
-sliderValue.innerHTML = slider.value;
-
-// Then do it each time the slider change 
-slider.onchange = () => {
-    sliderValue.innerHTML = slider.value;
-}
+$(function() {
+	$('.range').next().text('2020'); // Valeur par défaut
+	$('.range').on('input', function() {
+		var $set = $(this).val();
+		$(this).next().text($set);
+	});
+});

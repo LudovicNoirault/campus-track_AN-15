@@ -19,7 +19,7 @@ h2{
     margin: 20px 0px 20px 20px;
 }
 
-p{
+p, output{
     padding-left: 20px;
     padding-right: 60px;
     color: #4B4A48;
@@ -73,7 +73,7 @@ p{
 
 .year{
     color: #eb48c9;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .valueSlider{
@@ -87,14 +87,40 @@ p{
 
 .menuSettings{
     margin-top: 5px;
-    padding-top: 10px;
+    padding-top: 30px;
     background-color: #ffffff;
 }
 
-.menuSettings > p{
+.menuSettings form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menuSettings  output{
     padding-top: 10px;
+
 }
 
 .menuSettings input{
     margin-top: 20px;
 }
+
+.slider{
+    -webkit-appearance: none;
+    width: 80%;
+    height: 12px;
+    background-color: #dfdfdd;
+    border-radius: 20px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #eb48c9;
+    cursor: pointer;
+    border-radius: 50px;
+    opacity: 1;
+  }
