@@ -1,6 +1,7 @@
 var map
 var street = undefined
 var startingPos = {lat: 47.4474629, lng: -0.5421491}
+var elevator
 
 // Initial map with custom pos
 function initMap(){
@@ -30,30 +31,38 @@ function initMap(){
       }
     ]
   })
-};
+  
+  elevator = new google.maps.ElevationService;
+  
+  // Check elevation when change location with drag
+  map.addListener('dragend', function() {
+    getElevation(map, elevator)
+  });
 
-// Each second check mapState Function
-var t=setInterval(mapState,1000);
-
-// Check zoom level and call appropriate map
-function mapState(){
-  //Are we zoomed enough that you can see individual house ?
-  if(map.zoom > 19){
-    // set the type to satellite so that you don't get the infos and label
-    // while zoomed
-    map.mapTypeId = "satellite"
-
-    if(!street){
-      enableStreetView();
+  // Check elevation when change location with doubleclick
+  map.addListener('dbclick', function() {
+    getElevation(map, elevator)
+  });
+  
+  // Check zoom level when change
+  map.addListener('zoom_changed', function() {
+    //Are we zoomed enough that you can see individual house ?
+    if(map.zoom > 19){
+      // set the type to satellite so that you don't get the infos and label
+      // while zoomed
+      map.mapTypeId = "satellite"
+      
+      if(!street){
+        enableStreetView();
+      }
     }
-  }
-  // We're not so set the map setup back to it's original parameters 
-  else{
-    map.mapTypeId = 'hybrid'
-    street = undefined
-  }
+    // We're not so set the map setup back to it's original parameters 
+    else{
+      map.mapTypeId = 'hybrid'
+      street = undefined
+    }
+  }); 
 };
-
 
 function enableStreetView(){
   // Define street with the map values at the moment x
@@ -71,17 +80,22 @@ function enableStreetView(){
   map.setStreetView(street);
 }
 
+function getElevation(map, elevator){
+  // wait 1 second before to call to prevent overpricing by calling for each micro change of the map
+  setTimeout(function () {
+    elevator.getElevationForLocations({
+      'locations': [map.center]
+    }, function(results, status) {
+      console.log("elevation", results)
+    });
+  }, 1000);
+}
+
 // Slider
 $(function() {
-	$('.range').next().text('2020'); // Valeur par défaut
+  $('.range').next().text('2020'); // Valeur par défaut
 	$('.range').on('input', function() {
-		var $set = $(this).val();
-		$(this).next().text($set);
+    var set = $(this).val();
+		$(this).next().text(set);
 	});
 });
-
-
-// var valueSlider = document.getElementById("slider").value;
-// valueSlider = (2120 - valueSlider) / 200;
-document.getElementById("test").innerHTML = "24";
-
