@@ -42,6 +42,7 @@ function mapState(){
     // set the type to satellite so that you don't get the infos and label
     // while zoomed
     map.mapTypeId = "satellite"
+
     if(!street){
       enableStreetView();
     }
@@ -55,11 +56,11 @@ function mapState(){
 
 
 function enableStreetView(){
-  
   // Define street with the map values at the moment x
   street = new google.maps.StreetViewPanorama(
     document.getElementById('map'), {
       position: map.center,
+      enableCloseButton: true,
       pov: {
         heading: 34,
         pitch: 10
