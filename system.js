@@ -79,3 +79,9 @@ $(function() {
 		$(this).next().text($set);
 	});
 });
+
+
+// var valueSlider = document.getElementById("slider").value;
+// valueSlider = (2120 - valueSlider) / 200;
+document.getElementById("test").innerHTML = "24";
+
