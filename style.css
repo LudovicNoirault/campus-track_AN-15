@@ -34,6 +34,17 @@ p, output{
 #map {
     height: 100%;
     width: 70%;
+    position: relative;
+    z-index: 2;
+    opacity: 85%;
+}
+
+.overlay{
+    background-color: #74b9ff;
+    width: 70%;
+    height: 50%;
+    position: absolute;
+    z-index: 1;
 }
 #menu{
     height: 100%;

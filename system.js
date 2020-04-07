@@ -71,17 +71,10 @@ function enableStreetView(){
   map.setStreetView(street);
 }
 
-// Slider
-$(function() {
-	$('.range').next().text('2020'); // Valeur par défaut
-	$('.range').on('input', function() {
-		var $set = $(this).val();
-		$(this).next().text($set);
-	});
-});
 
 
-// var valueSlider = document.getElementById("slider").value;
-// valueSlider = (2120 - valueSlider) / 200;
-document.getElementById("test").innerHTML = "24";
+
+var valueSlider = document.getElementById("slider").value;
+valueSlider = (2120 - valueSlider) / 10;
+document.getElementById("test").innerHTML = valueSlider;
 

@@ -11,7 +11,6 @@ async defer></script>
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-  <script src="system.js"></script>
 </head>
   <body>
       <div id="app">
@@ -32,10 +31,12 @@ async defer></script>
                       <input id="slider" class="slider" type="range" name="d" min="2020" max="2120" step="10" value="2020" oninput="result4.value=parseInt(d.value)"/>
                 </form>
               </div>
-              <p id="test"></p>
+              <output id="test"></output>
             </div>
         </div>
         <div id="map"></div>
+        <div class="overlay"></div>
       </div>
+      <script src="system.js"></script>
   </body>
 </html>
