@@ -47,14 +47,28 @@ p, output{
 }
 
 .overlay{
-    background-color: #4a8dcf;
     width: 100%;
     height: 0%;
     position: absolute;
     z-index: 1;
-    opacity: 50%;
+    opacity: 65%;
     pointer-events : none;
-    transition: 0.3s;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.overlayBg{
+    background-color: #07c2d4;
+    width: 100%;
+    height: 100%;
+    margin-top: 150px;
+}
+
+.overlay img{
+    height: 150px;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
 }
 #menu{
     height: 100%;

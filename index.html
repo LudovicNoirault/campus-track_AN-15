@@ -27,12 +27,14 @@ async defer></script>
               <input id="slider" class="slider" type="range" min=0 max=100 step=10 value=0 oninput="sliderAction(parseInt(value))"/>
             </form>
           </div>
-          <p id="test"></p>
         </div>
       </div>
       <div class="containerMap">
         <div id="map"></div>
-        <div id="overlay" class="overlay"></div>
+        <div id="overlay" class="overlay">
+          <img src="assets/image/water.png" alt="water">
+          <div class="overlayBg"></div>
+        </div>
       </div>
     </div>
     <script src="system.js"></script>
