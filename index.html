@@ -7,36 +7,35 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"
 async defer></script>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
   <body>
-      <div id="app">
-        <div id="menu">
-            <div class="containerLogo">
-              <img src="assets/image/logo-4.png" alt="logo">
-              <h1>Cité de l’environement</h1>
-            </div>
-            <div class="menuContenu">
-              <div class="titlesMenu">
-                <h2>Projection du <br/>niveau de la mer <br/>à l’année 2100 </h2>
-                <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
-              </div>
-              <div class="menuSettings">
-                <p class="year">Année</p>
-                <form class="containerSlider">
-                      <output class="valueSlider" name="result4">2020</output>
-                      <input id="slider" class="slider" type="range" name="d" min="2020" max="2120" step="10" value="2020" oninput="result4.value=parseInt(d.value)"/>
-                </form>
-              </div>
-              <output id="test"></output>
-            </div>
+    <div id="app">
+      <div id="menu">
+        <div class="containerLogo">
+          <img src="assets/image/logo-4.png" alt="logo">
+          <h1>Cité de l’environement</h1>
         </div>
+        <div class="menuContenu">
+          <div class="titlesMenu">
+            <h2>Projection du <br/>niveau de la mer <br/>à l’année 2100 </h2>
+            <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
+          </div>
+          <div class="menuSettings">
+            <p class="year">Année</p>
+            <form class="containerSlider">
+              <output class="valueSlider" name="result4">2020</output>
+              <input id="slider" class="slider" type="range" name="d" min="2020" max="2120" step="10" value="2020" oninput="result4.value=parseInt(d.value)"/>
+            </form>
+          </div>
+          <p id="test"></p>
+        </div>
+      </div>
+      <div class="containerMap">
         <div id="map"></div>
         <div class="overlay"></div>
       </div>
-      <script src="system.js"></script>
+    </div>
+    <script src="system.js"></script>
   </body>
 </html>
