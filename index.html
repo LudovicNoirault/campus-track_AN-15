@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"
 async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
     <div id="app">
@@ -24,8 +23,8 @@ async defer></script>
           <div class="menuSettings">
             <p class="year">Année</p>
             <form class="containerSlider">
-              <output class="valueSlider" name="result4">2020</output>
-              <input id="slider" class="slider" type="range" name="d" min="2020" max="2120" step="10" value="2020" oninput="result4.value=parseInt(d.value)"/>
+              <p class="valueSlider" id="sliderYear">2020</p>
+              <input id="slider" class="slider" type="range" min=0 max=100 step=10 value=0 oninput="sliderAction(parseInt(value))"/>
             </form>
           </div>
           <p id="test"></p>
@@ -33,7 +32,7 @@ async defer></script>
       </div>
       <div class="containerMap">
         <div id="map"></div>
-        <div class="overlay"></div>
+        <div id="overlay" class="overlay"></div>
       </div>
     </div>
     <script src="system.js"></script>
