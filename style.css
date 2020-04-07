@@ -46,6 +46,10 @@ p, output{
     align-items: flex-end;
 }
 
+.value{
+    padding-bottom:10px;
+}
+
 .overlay{
     width: 100%;
     height: 0%;
