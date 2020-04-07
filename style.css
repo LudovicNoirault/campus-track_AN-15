@@ -54,6 +54,7 @@ p, output{
     z-index: 1;
     opacity: 50%;
     pointer-events : none;
+    transition: 0.3s;
 }
 #menu{
     height: 100%;
