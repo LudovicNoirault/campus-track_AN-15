@@ -113,9 +113,10 @@ function sliderActionYear(value){
   document.getElementById("sliderYear").innerHTML = originalYear + value
   var overlay = document.getElementById("overlay")
 
-  if(street && elevation <= waterLevelLimit){
-    overlay.style.height = value+"%"
-  }
+  // if(street && elevation <= waterLevelLimit){
+    overlay.style.height = (20 - elevation + value/2) + "%"
+    console.log((20 - elevation + value/3) + "%", elevation)
+  // }
 }
 
 function sliderActionWater(value){
