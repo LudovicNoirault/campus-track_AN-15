@@ -117,7 +117,6 @@ function sliderActionYear(value){
   locationFetchedData.forEach(data => {
     if( value == data.year){
       if(street){
-        console.log("on?", checkAlt)
         if(checkAlt){
           overlay.style.height = ( ( ( data.sea_level - locationFetchedData[2].sea_level ) - elevation ) * 10) + "%"
         }
@@ -125,7 +124,6 @@ function sliderActionYear(value){
           overlay.style.height = ( ( data.sea_level - locationFetchedData[2].sea_level) *10) + "%"
         }
       }
-
       document.getElementById("riseValue").innerHTML = (data.sea_level - locationFetchedData[2].sea_level) +" Mètres"
     }
   });
