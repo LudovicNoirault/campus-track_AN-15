@@ -115,25 +115,35 @@ function sliderActionYear(value){
   document.getElementById("sliderYear").innerHTML = value
     
   locationFetchedData.forEach(data => {
-    if( value == data.year){     
-      
+    if( value == data.year){
       if(street){
+        console.log("on?", checkAlt)
         if(checkAlt){
-          overlay.style.height = ( data.sea_level + elevation - locationFetchedData[2].sea_level ) + "%"
+          overlay.style.height = ( ( ( data.sea_level - locationFetchedData[2].sea_level ) - elevation ) * 10) + "%"
         }
         else{
-          overlay.style.height = ( (data.sea_level - locationFetchedData[2].sea_level) ) + "%"
+          overlay.style.height = ( ( data.sea_level - locationFetchedData[2].sea_level) *10) + "%"
         }
       }
 
       document.getElementById("riseValue").innerHTML = (data.sea_level - locationFetchedData[2].sea_level) +" Mètres"
     }
   });
+
+  if(value == 2020){
+    overlay.style.height = "0%"
+  }
 }
 
-function checkboxAltChange(value){
-  checkAlt = value
-}
+const checkbox = document.getElementById('checkboxAlt')
+
+checkbox.addEventListener('change', (event) => {
+  if (event.target.checked) {
+    checkAlt = true
+  } else {
+    checkAlt = false
+  }
+})
 
 function fetchMarseille(){
   axios.get('http://localhost:3000/climates')
