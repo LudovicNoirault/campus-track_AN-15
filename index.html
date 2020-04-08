@@ -5,46 +5,40 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"
-async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"async defer></script>
   </head>
-  <body>
-    <div id="app">
-      <div id="menu">
-        <div class="containerLogo">
-          <img src="assets/image/logo-4.png" alt="logo">
-          <h1>Cité de l’environement</h1>
-        </div>
-        <div class="menuContenu">
-          <div class="titlesMenu">
-            <h2>Projection du <br/>niveau de la mer <br/>à l’année 2100 </h2>
-            <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
-          </div>
-          <div id="menuSetting" class="menuSettings">
-            <div class="value yearSlider">
-              <div>
-                <p class="year">Année</p>
-                <p class="valueSlider" id="sliderYear">2020</p>
-              </div>
-              <input id="slider" class="slider" type="range" min=0 max=100 step=10 value=0 oninput="sliderActionYear(parseInt(value))"/>
-            </div>
-            <div class="value waterHeight">
-              <div>
-                <p class="water">Niveau de l'eau critique</p>
-                <p class="valueSlider" id="sliderWater">10</p>
-              </div>
-              <input id="slider" class="slider" type="range" min=0 max=100 step=10 value=0 oninput="sliderActionWater(parseInt(value))"/>
-            </div>
-            </div>
-          <p id="test"></p>
-        </div>
+  <body id="app">
+    <div id="menu">
+      <div class="containerLogo">
+        <img src="assets/image/logo-4.png" alt="logo">
+        <h1>Cité de l’environement</h1>
       </div>
-      <div class="containerMap">
-        <div id="map"></div>
-        <div id="overlay" class="overlay">
-          <img src="assets/image/water.png" alt="water">
-          <div class="overlayBg"></div>
+      <div class="menuContenu">
+        <div class="titlesMenu">
+          <h2>Projection du <br/>niveau de la mer <br/>à l’année 2100 </h2>
+          <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
         </div>
+        <div id="menuSetting" class="menuSettings">
+          <div class="value yearSlider">
+            <div>
+              <p class="year">Année</p>
+              <p class="valueSlider" id="sliderYear">2020</p>
+            </div>
+            <input id="slider" class="slider" type="range" min=0 max=100 step=10 value=0 oninput="sliderActionYear(parseInt(value))"/>
+          </div>
+          <div class="value checkboxAlt">
+            <input id="checkboxAlt" class="checkbox" type="checkbox" checked onchange="checkboxAltChange(value)"/>
+            <label for="checkboxAlt">Prendre en compte l'altitude de la position</label>
+          </div>
+          </div>
+        <p id="test"></p>
+      </div>
+    </div>
+    <div class="containerMap">
+      <div id="map"></div>
+      <div id="overlay" class="overlay">
+        <img src="assets/image/water.png" alt="water">
+        <div class="overlayBg"></div>
       </div>
     </div>
     <script src="system.js"></script>

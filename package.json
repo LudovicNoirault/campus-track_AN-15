@@ -18,6 +18,7 @@
   },
   "homepage": "https://gitlab.com/Horyon/campus-track-interactive-map#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "electron": "^8.2.0"
   }
 }

@@ -1,6 +1,11 @@
+const axios = require('axios').default;
+
+axios.defaults.headers.common['x-access-token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTg2MzQyNDAzfQ.-fsk0IkO2mnVVaC2BHimxQxzzb7wyESAgPEKXzZ6INk"
+
 var map
+var checkAlt = true
 var street = undefined
-var startingPos = {lat: 47.4474629, lng: -0.5421491}
+var startingPos = {lat: 17.47, lng: 22.12}
 var elevator
 var elevation
 var waterLevelLimit = 20
@@ -70,6 +75,8 @@ function initMap(){
       overlay.style.visibility = "hidden"
     }
   });
+
+  fetchMarseille()
 };
 
 function enableStreetView(){
@@ -119,10 +126,16 @@ function sliderActionYear(value){
   // }
 }
 
-function sliderActionWater(value){
-  document.getElementById("sliderWater").innerHTML = originalWater + value
+function checkboxAltChange(value){
+  checkAlt = value
+}
 
-  if(street && elevation <= waterLevelLimit){
-    overlay.style.height = value+"%"
-  }
+function fetchMarseille(){
+  axios.get('http://localhost:3000/climates')
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
 }
