@@ -4,8 +4,9 @@
 
 To use the project you need to have installed on your computer :
 
-    - Npm -> Downloadable from [this](https://nodejs.org/en/download/)
-    - Electron -> Run the following command from a cli : ```npm i -g electron```
+Npm -> Downloadable from [this](https://nodejs.org/en/download/)
+
+Electron -> Run the following command from a cli : ```npm i -g electron```
 
 ## Run the project
 
