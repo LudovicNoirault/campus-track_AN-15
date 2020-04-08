@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlGYGbK44IRVKjfc3P4LfU0Op7rszpd5I&callback=initMap"async defer></script>
+  </head>
+  <body id="app">
+    <div id="menu">
+      <div class="containerLogo">
+        <img src="assets/image/logo-4.png" alt="logo">
+        <h1>Cité de l’environement</h1>
+      </div>
+      <div class="menuContenu">
+        <div class="titlesMenu">
+          <h2>Projection du <br/>niveau de la mer <br/>à l’année 2100 </h2>
+          <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
+        </div>
+        <div id="menuSetting" class="menuSettings">
+          <div class="value">
+            <div>
+              <p class="year">Année</p>
+              <p class="valueSlider" id="sliderYear">2020</p>
+            </div>
+            <input id="slider" class="slider" type="range" min=2020 max=2120 step=10 value=2020 oninput="sliderActionYear(value)"/>
+          </div>
+          <div class="value">
+            <input id="checkboxAlt" class="checkbox" type="checkbox" checked onchange="checkboxAltChange(value)"/>
+            <label class="label" for="checkboxAlt">Prendre en compte l'altitude de la position</label>
+          </div>
+          <div class="value">
+            <p class="label">Difference du niveau de l'eau avec l'année 2020</p>
+            <p class="label" id="riseValue">0 Mètres</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="containerMap">
+      <div id="map"></div>
+      <div id="overlay" class="overlay">
+        <img src="assets/image/water.png" alt="water">
+        <div class="overlayBg"></div>
+      </div>
+    </div>
+    <script src="system.js"></script>
+  </body>
+</html>
