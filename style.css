@@ -127,6 +127,10 @@ p, output{
     padding-bottom:10px;
 }
 
+.label{
+    color:#3d3d3d
+}
+
 /* right */
 
 .containerMap {
@@ -150,6 +154,7 @@ p, output{
     pointer-events : none;
     transition: 0.5s;
     overflow: hidden;
+    bottom:0;
 }
 
 .overlayBg{

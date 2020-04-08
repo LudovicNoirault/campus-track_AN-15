@@ -8,13 +8,12 @@ function createWindow () {
       },
       transparent:true,
       frame:false,
-      fullscreen:true
+      fullscreen:true,
+      backgroundColor:"#3d3d3d",
     })
     
-    win.loadFile('index.html')
-
-    BrowserWindow.maximize()
     // and load the index.html of the app.
+    win.loadFile('index.html')
   }
   
   // This method will be called when Electron has finished

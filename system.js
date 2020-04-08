@@ -2,17 +2,15 @@ const axios = require('axios').default;
 
 axios.defaults.headers.common['x-access-token'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTg2MzQyNDAzfQ.-fsk0IkO2mnVVaC2BHimxQxzzb7wyESAgPEKXzZ6INk"
 
-var map
-var checkAlt = true
-var street = undefined
-var startingPos = {lat: 17.47, lng: 22.12}
-var elevator
-var elevation
-var waterLevelLimit = 20
-var originalYear = 2020
-var originalWater = 10
-var overlay = document.getElementById("overlay")
-var menu = document.getElementById("menuSetting")
+let map
+let checkAlt = true
+let locationFetchedData
+let street = undefined
+let elevator
+let elevation
+const startingPos = {lat: 43.29, lng: 5.36}
+const originalYear = 2020
+const overlay = document.getElementById("overlay")
 
 // Initial map with custom pos
 function initMap(){
@@ -76,6 +74,7 @@ function initMap(){
     }
   });
 
+  getElevation(map, elevator) 
   fetchMarseille()
 };
 
@@ -92,8 +91,6 @@ function enableStreetView(){
     }
   );
 
-  getElevation(map, elevator) 
-
   // set street view on map where we defined it
   map.setStreetView(street);
 
@@ -104,26 +101,34 @@ function enableStreetView(){
 
 function getElevation(map, elevator){
   // wait 0.5 second before calling elavation api to prevent overpricing by calling for each micro change of the map
-  if(street){
-    setTimeout(function () {
-      elevator.getElevationForLocations({
-        'locations': [map.center]
-      }, function(results, status) {
-        console.log("hey", results)
-        elevation = results[0].elevation
-      });
-    }, 500);
-  }
+  setTimeout(function () {
+    elevator.getElevationForLocations({
+      'locations': [map.center]
+    }, function(results, status) {
+      console.log("hey", results)
+      elevation = results[0].elevation
+    });
+  }, 500);
 }
 
 function sliderActionYear(value){
-  document.getElementById("sliderYear").innerHTML = originalYear + value
-  var overlay = document.getElementById("overlay")
+  document.getElementById("sliderYear").innerHTML = value
+    
+  locationFetchedData.forEach(data => {
+    if( value == data.year){     
+      
+      if(street){
+        if(checkAlt){
+          overlay.style.height = ( data.sea_level + elevation - locationFetchedData[2].sea_level ) + "%"
+        }
+        else{
+          overlay.style.height = ( (data.sea_level - locationFetchedData[2].sea_level) ) + "%"
+        }
+      }
 
-  // if(street && elevation <= waterLevelLimit){
-    overlay.style.height = (20 - elevation + value/2) + "%"
-    console.log((20 - elevation + value/3) + "%", elevation)
-  // }
+      document.getElementById("riseValue").innerHTML = (data.sea_level - locationFetchedData[2].sea_level) +" Mètres"
+    }
+  });
 }
 
 function checkboxAltChange(value){
@@ -133,9 +138,10 @@ function checkboxAltChange(value){
 function fetchMarseille(){
   axios.get('http://localhost:3000/climates')
   .then(function (response) {
-    console.log(response);
+    locationFetchedData = response.data.result
+    console.log(locationFetchedData)
   })
   .catch(function (error) {
-    console.log(error);
+    console.log("Error fetching data :", error);
   })
 }

@@ -19,19 +19,22 @@
           <p>Explorez le monde pour découvrir les risques d’inondations lié à la montée du niveau de la mer avec différents paramètres</p>
         </div>
         <div id="menuSetting" class="menuSettings">
-          <div class="value yearSlider">
+          <div class="value">
             <div>
               <p class="year">Année</p>
               <p class="valueSlider" id="sliderYear">2020</p>
             </div>
-            <input id="slider" class="slider" type="range" min=0 max=100 step=10 value=0 oninput="sliderActionYear(parseInt(value))"/>
+            <input id="slider" class="slider" type="range" min=2020 max=2120 step=10 value=2020 oninput="sliderActionYear(value)"/>
           </div>
-          <div class="value checkboxAlt">
+          <div class="value">
             <input id="checkboxAlt" class="checkbox" type="checkbox" checked onchange="checkboxAltChange(value)"/>
-            <label for="checkboxAlt">Prendre en compte l'altitude de la position</label>
+            <label class="label" for="checkboxAlt">Prendre en compte l'altitude de la position</label>
           </div>
+          <div class="value">
+            <p class="label">Difference du niveau de l'eau avec l'année 2020</p>
+            <p class="label" id="riseValue">0 Mètres</p>
           </div>
-        <p id="test"></p>
+        </div>
       </div>
     </div>
     <div class="containerMap">
